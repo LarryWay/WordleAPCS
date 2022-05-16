@@ -29,7 +29,7 @@ public class UserText {
         textField.addKeyListener(new KeyListener() {
             @Override
             public void keyTyped(KeyEvent e) {
-                if(textField.getText().length() >= 5){
+                if(textField.getText().length() >= 5 && e.getKeyChar() != 10){
                     textField.setText(textField.getText().substring(0, 4));
                 }
 
@@ -39,7 +39,6 @@ public class UserText {
             public void keyPressed(KeyEvent e) {
                 if(e.getKeyCode() == 10 && textField.getText().length() == 5){
                     gui.update(textField.getText().toLowerCase(Locale.ROOT));
-                    System.out.println(textField.getText());
                     textField.setText("");
                 }
 

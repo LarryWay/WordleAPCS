@@ -49,7 +49,7 @@ public class WordSystem {
         return temp;
     }
 
-    public boolean hasWord(String word){
+    public static boolean hasWord(String word){
         int cnt = 0;
         try{scan = new Scanner(wordFile);} catch(Exception e){e.printStackTrace();}
         while(scan.nextLine().compareTo(word) != 0){
