@@ -8,9 +8,7 @@ import java.awt.event.KeyEvent;
 public class GUI {
 
     JFrame frame = new JFrame();
-    TextListener textListener = new TextListener(this);
-    ActionMap actionMap = frame.getRootPane().getActionMap();  // PROBLEM -- NOT SURE IF ACTUALLY GETTING MAPPING
-    InputMap inputMap = frame.getRootPane().getInputMap(JComponent.WHEN_FOCUSED);
+    UserText text;
     int bufferChar;
 
     JPanel panelMat[][] = new JPanel[CONSTANTS.NUM_OF_ATTEMPTS][CONSTANTS.NUM_OF_LETTERS];
@@ -18,7 +16,6 @@ public class GUI {
     public GUI(){
         frameSetup();
         panelSetup();
-        createMappings();
     }
 
     private void panelSetup(){
@@ -32,14 +29,16 @@ public class GUI {
 
             }
         }
+
+
     }
 
     private void frameSetup(){
+        text = new UserText(frame);
         frame.setVisible(true);
         frame.setSize(CONSTANTS.WINDOW_WIDTH,CONSTANTS.WINDOW_HEIGHT);
         frame.setLayout(null);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.addKeyListener(textListener);
     }
 
     private JLabel createLabel(){
@@ -56,22 +55,6 @@ public class GUI {
         panel.setLayout(null);
         panel.add(createLabel());
         return panel;
-    }
-
-
-    private void createMappings(){
-        inputMap.put(KeyStroke.getKeyStroke(KeyEvent.VK_ENTER, 0), "onEnter");
-        actionMap.put("onEnter", new AbstractAction() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                System.out.println("Bruh"); // ISN"T WORKING
-            }
-        });
-    }
-
-
-    public void buffer(int c){
-        this.bufferChar = c;
     }
 
     public void update(char c){
