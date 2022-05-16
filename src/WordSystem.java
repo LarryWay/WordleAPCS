@@ -23,7 +23,7 @@ public class WordSystem {
     public String getRandomWord(){
         Random ran = new Random();
         int val = ran.nextInt(numOfWords - 1);
-        return getWord(val).toUpperCase(Locale.ROOT);  //Make lowercase if needed
+        return getWord(val).toLowerCase(Locale.ROOT);
 
     }
 
@@ -47,7 +47,15 @@ public class WordSystem {
         temp = scan.nextLine();
         scan.reset();
         return temp;
+    }
 
+    public boolean hasWord(String word){
+        int cnt = 0;
+        try{scan = new Scanner(wordFile);} catch(Exception e){e.printStackTrace();}
+        while(scan.nextLine().compareTo(word) != 0){
+            cnt++;
+        }
+        return cnt < numOfWords;
     }
 
 }

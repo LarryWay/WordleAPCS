@@ -27,14 +27,17 @@ public class CONSTANTS {
 
 
     //Constants for User Text
-    public static int TEXTPANEL_WIDTH = 100;
-    public static int TEXTPANEL_HEIGHT = 10;
-    public static int TEXTPANEL_XPOS = 100;
-    public static int TEXTPANEL_YPOS = 100;
+    public static int TEXTPANEL_WIDTH = LEFT_WINDOW_PADDING * 2 - 50;
+    public static int TEXTPANEL_HEIGHT = TOP_WINDOW_PADDING - 50;
+    public static int TEXTPANEL_XPOS = (WINDOW_WIDTH / 2) - (TEXTPANEL_WIDTH / 2);
+    public static int TEXTPANEL_YPOS = TEXTPANEL_HEIGHT - (TEXTPANEL_HEIGHT - 30);
 
     public static int TEXTFIELD_WIDTH = 100;
     public static int TEXTFIELD_HEIGHT = 20;
     public static int TEXTFIELD_XPOS = (TEXTPANEL_WIDTH / 2) - (TEXTFIELD_WIDTH / 2);
     public static int TEXTFIELD_YPOS = 100;
+
+    public static int WARNING_XPOS = 0;
+    public static int WARNING_YPOS = 0;
 
 }
